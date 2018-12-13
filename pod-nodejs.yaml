@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodejs
+  labels:
+    run: nodejsv5
+spec:
+  containers:
+  - name: nodejsv5
+    image: gcr.io/zihongz-kubernetes-codelab/hello-node:v5
+    ports:
+    - containerPort: 8080
+    # - targetPort: 80

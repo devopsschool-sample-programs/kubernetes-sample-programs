@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: hostlessendpoint
+spec:
+ rules:
+ - http:
+     paths:
+     - path: /hostless
+       backend:
+         serviceName: test
+         servicePort: 80

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nettest
+spec:
+  containers:
+  - name: nettest
+    image: gcr.io/google_containers/nettest:1.9
+    ports:
+    - containerPort: 8080

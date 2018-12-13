@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jessie
+spec:
+  containers:
+  - name: jessie
+    image: girishkalele/jessie-full:1.0
+    command: ["sh", "-c"]
+    args: ["while true ; do echo here; sleep 3 ; done"]
+    lifecycle:
+      postStart:
+        exec:
+          command:
+            - "touch"
+            - "postStart"
+      preStop:
+        exec:
+          command: 
+            - "touch" 
+            - "preStop"
+          # command: ["/bin/sh","-c", "sleep 10"]
+  restartPolicy: Never

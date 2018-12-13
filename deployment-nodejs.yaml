@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nodejsv5
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: nodejsv5
+    spec:
+      containers:
+      - name: nodejsv5
+        image: gcr.io/zihongz-kubernetes-codelab/hello-node:v5
+        ports:
+        - containerPort: 8080

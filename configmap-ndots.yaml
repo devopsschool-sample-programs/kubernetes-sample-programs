@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: resolvconf
+  namespace: default
+data:
+  resolv.conf: |-
+    search default.svc.cluster.local svc.cluster.local cluster.local my.domain1.com. my domain2.com
+    nameserver 10.0.0.10
+    options ndots:1

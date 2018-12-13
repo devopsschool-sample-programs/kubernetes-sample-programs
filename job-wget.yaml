@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: wget
+spec:
+  template:
+    metadata:
+      name: wget
+    spec:
+      containers:
+      - name: wget-test
+        image: gcr.io/google_containers/busybox:1.24
+        ports:
+        command: ["/bin/sh", "-c"]
+        args: ["wget --timeout=10 nodejsv5:8080 && cat index.html"]
+        # command: ["curl", "nodejsv5:8080"]
+      restartPolicy: Never

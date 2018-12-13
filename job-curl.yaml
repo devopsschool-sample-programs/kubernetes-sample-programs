@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: curl
+spec:
+  template:
+    metadata:
+      name: curl
+    spec:
+      containers:
+      - name: curl-test
+        # image: radial/busyboxplus:curl
+        image: gcr.io/zihongz-kubernetes-codelab/busyboxplus:curl
+        ports:
+        command: ["/bin/sh", "-c"]
+        # args: ["curl nodejsv5:8080 && sleep 1"]
+        args: ["curl google.com"]
+        # command: ["curl", "nodejsv5:8080"]
+      # restartPolicy: OnFailure
+      restartPolicy: Never

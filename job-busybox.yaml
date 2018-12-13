@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: busybox
+spec:
+  template:
+    metadata:
+      name: busybox
+    spec:
+      containers:
+      - name: wget-test
+        image: gcr.io/google_containers/busybox:1.24
+        ports:
+        command:
+        - wget
+        - --timeout=30
+        - google.com
+      restartPolicy: OnFailure

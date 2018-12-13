@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-2
+  labels:
+    run: my-nginx
+  annotations:
+    service.beta.kubernetes.io/gce-lb-dns: zihongtestonly.net
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: my-nginx
+  type: LoadBalancer

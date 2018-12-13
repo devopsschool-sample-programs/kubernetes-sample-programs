@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: my-nginx-1
+  labels:
+      test: "true"
+      run: my-nginx
+spec:
+  # replicas: 2
+  selector:
+    matchLabels:
+        run: my-nginx
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        # image: nginx
+        image: nginx:latest
+        # image: nginx:1.10
+        ports:
+        - containerPort: 80

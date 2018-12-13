@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejsv5
+  labels:
+    run: nodejsv5
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    run: nodejsv5

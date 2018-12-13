@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: echoserver
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: echoserver
+    spec:
+      containers:
+      - name: echoserver
+        image: gcr.io/google_containers/echoserver:1.4
+        # fake backend
+        # image: gcr.io/google_containers/busybox:1.24
+        # command: ["/bin/sh", "-c"]
+        # # args: ["wget --timeout=30 google.com"]
+        # args: ["sleep 3600"]  
+        ports:
+        - containerPort: 8080
